@@ -11,9 +11,7 @@ else {
   available_voices = window.speechSynthesis.getVoices();
 }
 
-
  function textToSpeech(text) {
-   alert(text);
   // get all voices that browser offers
   var available_voices = window.speechSynthesis.getVoices();
 
