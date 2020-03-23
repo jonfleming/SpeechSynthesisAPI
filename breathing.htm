@@ -11,8 +11,12 @@
     <script src="./speechSynthesis.js"></script>
     <script>
     function loop() {
-      say('id1');
-      say('id2');
+      var count = document.getElementById(id).value;
+      
+      for(var i = 0; i < count; ++) {
+        say('id1');
+        say('id2');          
+      }
     }
     
     function updateLabel(id, val) {
