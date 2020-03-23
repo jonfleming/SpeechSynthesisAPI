@@ -19,20 +19,22 @@
     }
     </script>
     <h1>Breathing</h1><br/>
-    <button onclick="loop()">Go</button><br/>
+    Repeat <input type="text" id="id0" value="5"> <button onclick="loop()">Go</button><br/>
     <table>
       <tr>
-        <th>Phrase</th><th>Duration</th><th>*</th>
+        <th>Phrase</th><th>Duration</th><th>*</th><th>Countdown</th>
       </tr>
       <tr>
         <td><input id="id1" type="text" value="Inhale"></td>
         <td><input type="range" min="1" max="10" value="4" id="id3" onchange="updateLabel('id5',this.value);"></td>
         <td><label id="id5">4</label></td>
+        <td id="id7">&nbsp;</td>
       </tr>
       <tr>
         <td><input id="id2" type="text" value="Exhale"></td>
         <td><input type="range" min="1" max="10" value="4" id="id4" onchange="updateLabel('id6',this.value);"></td>
         <td><label id="id6">4</label></td>
+        <td id="id8">&nbsp;</td>
       </tr>
      </table>
   </body>
