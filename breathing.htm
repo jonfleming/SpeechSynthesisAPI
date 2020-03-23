@@ -16,7 +16,16 @@
     </script>
     <h1>Breathing</h1><br/>
     <button onclick="loop()">Go</button><br/>
-    <input id="id1" type="text" value="Inhale"><br/>
-    <input id="id2" type="text" value="Exhale"><br/>
+    <table>
+      <tr>
+        <th>Phrase</th><th>Duration</th>
+      </tr>
+      <tr>
+        <td><input id="id1" type="text" value="Inhale"></td><td><input type="range" min="1" max="10" value="4" id="id3"></td>
+      </tr>
+      <tr>
+        <td><input id="id2" type="text" value="Exhale"></td><td><input type="range" min="1" max="10" value="4" id="id4"></td>
+      </tr>
+     </table>
   </body>
 </html>
