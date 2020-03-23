@@ -1,11 +1,22 @@
 <html>
   <head>
+    <style>
+      body {font-size: 20px;
+        
+    </style>
   </head>
   <body>
     <script src="./speechSynthesis.js"></script>
-  fleming.ai<br/>
-    <input id="id1" type="text" value="this is a test.">
-    <button onclick="say('id1')">Click Here</button>
+    <script>
+    function loop() {
+      say('id1');
+      say('id2');
+    }
+    </script>
+    
+  Breathing<br/>
+    <input id="id1" type="text" value="Inhale">
+    <input id="id2" type="text" value="Exhale">
+    <button onclick="loop()">Go</button>
   </body>
-
 </html>
