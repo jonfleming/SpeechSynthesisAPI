@@ -14,8 +14,8 @@
       var count = document.getElementById(id).value;
       
       for(var i = 0; i < count; ++) {
-        say('id1');
-        say('id2');          
+        fillCell('id7', 100); say('id1'); fillCell('id7', 0);
+        fillCell('id8', 100); say('id2'); fillCell('id8', 0);
       }
     }
     
@@ -23,8 +23,16 @@
       document.getElementById(id).innerHTML=val; 
     }
       
-    function fillCell() {
-    
+    function fillCell(id, percent) {
+      var canvas = document.getElementById(id);
+      var td = canvas.parentNode;
+      canvas.width = td.clientWidth;
+      canvas.height = td.clientHeight;
+      
+      var ctx = canvas.getContext('2d');
+      ctx.rect(0, 0, canvas.width * percent, canvas.height);
+      ctx.fillStyle = 'blue';
+      ctx.fill();
     }
     </script>
     <h1>Breathing</h1><br/>
