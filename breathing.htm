@@ -22,6 +22,10 @@
     function updateLabel(id, val) {
       document.getElementById(id).innerHTML=val; 
     }
+      
+    function fillCell() {
+    
+    }
     </script>
     <h1>Breathing</h1><br/>
     Repeat <input size="2" type="text" id="id0" value="5"> <button onclick="loop()">Go</button><br/>
@@ -34,13 +38,13 @@
         <td><input id="id1" type="text" value="Inhale"></td>
         <td><input type="range" min="1" max="10" value="4" id="id3" onchange="updateLabel('id5',this.value);"></td>
         <td><label id="id5">4</label></td>
-        <td id="id7">&nbsp;</td>
+        <td><canvas id="id7"></td>
       </tr>
       <tr>
         <td><input id="id2" type="text" value="Exhale"></td>
         <td><input type="range" min="1" max="10" value="4" id="id4" onchange="updateLabel('id6',this.value);"></td>
         <td><label id="id6">4</label></td>
-        <td id="id8">&nbsp;</td>
+        <td><canvas id="id8"></td>
       </tr>
      </table>
   </body>
