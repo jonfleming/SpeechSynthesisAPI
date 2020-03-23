@@ -24,24 +24,15 @@
     function updateLabel(id, val) {
       document.getElementById(id).innerHTML=val; 
     }
-    
-    function setCanvasSize(id) {
-      var canvas = document.getElementById(id);
-      var td = canvas.parentNode;
-      canvas.width = td.clientWidth;
-      canvas.height = td.clientHeight;
-    }
       
     function fillCell(id, percent) {
       var canvas = document.getElementById(id);      
       var ctx = canvas.getContext('2d');
-      ctx.rect(0, 0, canvas.width * percent, canvas.height);
+      ctx.rect(0, 0, 300 * percent, canvas.height);
       ctx.fillStyle = 'blue';
       ctx.fill();
     }
     
-    setCanvasSize('id7');
-    setCanvasSize('id8');
     </script>
     <h1>Breathing</h1><br/>
     Repeat <input size="2" type="text" id="id0" value="5"> <button onclick="loop()">Go</button><br/>
@@ -54,13 +45,13 @@
         <td><input id="id1" type="text" value="Inhale"></td>
         <td><input type="range" min="1" max="10" value="4" id="id3" onchange="updateLabel('id5',this.value);"></td>
         <td><label id="id5">4</label></td>
-        <td><canvas id="id7"></canvas></td>
+        <td><canvas id="id7" width="300" height="10"></canvas></td>
       </tr>
       <tr>
         <td><input id="id2" type="text" value="Exhale"></td>
         <td><input type="range" min="1" max="10" value="4" id="id4" onchange="updateLabel('id6',this.value);"></td>
         <td><label id="id6">4</label></td>
-        <td><canvas id="id8"></canvas></td>
+        <td><canvas id="id8" width="300" height="10"></canvas></td>
       </tr>
      </table>
   </body>
