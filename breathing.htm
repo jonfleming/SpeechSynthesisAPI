@@ -35,6 +35,7 @@
     }
     
     function init() {
+      log('init');
       t1 = new Date();
       t2 = new Date();
       t1.setSeconds( t1.getSeconds() + r1 );
@@ -44,24 +45,9 @@
     }
       
     function updateState() {
-      log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2);
       var now = new Date();
+      log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2);
       log('now=' + now + ' t1=' + t1);
-      if (repeat < 1) clearInterval(interval);
-      if (!spoke1) {
-        say('inhale');
-        spoke1 = true;
-      }
-      
-      if (!spoke2 && now > t1) {
-        say('exhale');
-        spoke2 = true;
-      }
-      
-      if (now > t2) {
-        repeat--;
-        init();  
-      }
     }
     
     function updateLabel(id, val) {
