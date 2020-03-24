@@ -28,16 +28,16 @@
     var repeaat;
       
     function loop() {
-      log('loop');
       repeat = document.getElementById('repeat').value;
       r1 = document.getElementById('range1').value;
       r2 = document.getElementById('range1').value;
+      log('loop r1=' + r1 + ' r2=' + r2);
       init();
       var interval = setInterval(updateState, 1000); 
     }
     
     function init() {
-      log('init');
+      log('init t1=' + t1 + ' t2=' + t2);
       t1 = new Date();
       t2 = new Date();
       t1.setSeconds( t1.getSeconds() + r1 );
