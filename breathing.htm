@@ -20,16 +20,19 @@
       document.getElementById('log').value += message + '\n';
     }
     
+    var r1;
+    var r2;
     var t1;
     var t2;
     var spoke1;
     var spoke2;
+    var repeaat;
       
     function loop() {
       log('loop');
-      var repeat = document.getElementById('repeat').value;
-      var r1 = document.getElementById('range1').value;
-      var r2 = document.getElementById('range1').value;
+      repeat = document.getElementById('repeat').value;
+      r1 = document.getElementById('range1').value;
+      r2 = document.getElementById('range1').value;
       init();
       var interval = setInterval(updateState, 1000); 
     }
