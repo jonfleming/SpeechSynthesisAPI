@@ -6,7 +6,7 @@
       input {font-size: 20px;}
       button {font-size: 20px;}
       th {font-size: 20px; font-weight: bold;}
-      .column {float: left; width: 40%;}
+      .column {float: left; width: 60%;}
 
       /* Clear floats after the columns */
       .row:after {content: ""; display: table; clear: both;}
@@ -44,7 +44,7 @@
     }
     
       log('repeat=' + document.getElementById('repeat').value);
-      log('inhale=' + document.getElementById('range1').innerHTML);
+      log('inhale=' + document.getElementById('range1').value);
     </script>
     <div class="row">
       <div class="column">
@@ -71,7 +71,7 @@
       </div>
       <div class="column">
         <br/><br/><br/><br/><br/><br/>
-        <textarea id="log" rows="60" cols="90"></textarea>
+        <textarea id="log" rows="60" cols="75"></textarea>
       </div>
   </body>
 </html>
