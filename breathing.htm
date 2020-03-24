@@ -82,13 +82,11 @@
       var canvas = document.getElementById(id);      
       var ctx = canvas.getContext('2d');
       var x = 300 * percent;
-      ctx.rect(0, 0, x, canvas.height);
-      ctx.fillStyle = 'blue';
-      ctx.fill();
       
-    //  ctx.rect(x, 0, 300 - x, canvas.height);
-    //  ctx.fillStyle = 'white';
-    //  ctx.fill();
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(0, 0, x, canvas.height);
+      ctx.fillStyle = 'white';
+      ctx.fillRect(x, 0, 300 - x, canvas.height);
       log('fillCell x=' + x + ' percent=' + percent);
     }
     
