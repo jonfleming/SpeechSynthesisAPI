@@ -6,6 +6,10 @@
       input {font-size: 20px;}
       button {font-size: 20px;}
       th {font-size: 20px; font-weight: bold;}
+      .column {float: left; width: 50%;}
+
+      /* Clear floats after the columns */
+      .row:after {content: ""; display: table; clear: both;}
     </style>
     <title>Breathing</title>
   </head>
@@ -13,13 +17,13 @@
     <script src="./speechSynthesis.js"></script>
     <script>
     function loop() {
-      var count = document.getElementById('id0').value;
+      var count = document.getElementById('repeat').value;
       
       for(var i = 0; i < count; i++) {
-//        fillCell('id7', 100); say('id1'); fillCell('id7', 0);
-//        fillCell('id8', 100); say('id2'); fillCell('id8', 0);
-        say('id1');
-        say('id2');
+//        fillCell('canvas1', 100); say('inhale'); fillCell('canvas1', 0);
+//        fillCell('canvas2', 100); say('exhale'); fillCell('canvas2', 0);
+        say('inhale');
+        say('exhale');
       }
     }
     
@@ -36,25 +40,31 @@
     }
     
     </script>
+    <div class="row">
+      <div class="column">
     <h1>Breathing</h1><br/>
-    Repeat <input size="2" type="text" id="id0" value="5"> <button onclick="loop()">Go</button><br/>
+    Repeat <input size="2" type="text" id="repeat" value="5"> <button onclick="loop()">Go</button><br/>
     <br/><br/>
     <table>
       <tr>
         <th>Phrase</th><th>Duration</th><th>*</th><th>Countdown</th>
       </tr>
       <tr>
-        <td><input id="id1" type="text" value="Inhale"></td>
-        <td><input type="range" min="1" max="10" value="4" id="id3" onchange="updateLabel('id5',this.value);"></td>
-        <td><label id="id5">4</label></td>
-        <td><canvas id="id7" width="300" height="10"></canvas></td>
+        <td><input id="inhale" type="text" value="Inhale"></td>
+        <td><input type="range" min="1" max="10" value="4" id="range1" onchange="updateLabel('label1',this.value);"></td>
+        <td><label id="label1">4</label></td>
+        <td><canvas id="canvas1" width="300" height="10"></canvas></td>
       </tr>
       <tr>
-        <td><input id="id2" type="text" value="Exhale"></td>
-        <td><input type="range" min="1" max="10" value="4" id="id4" onchange="updateLabel('id6',this.value);"></td>
-        <td><label id="id6">4</label></td>
-        <td><canvas id="id8" width="300" height="10"></canvas></td>
+        <td><input id="exhale" type="text" value="Exhale"></td>
+        <td><input type="range" min="1" max="10" value="4" id="range2" onchange="updateLabel('label2',this.value);"></td>
+        <td><label id="label2">4</label></td>
+        <td><canvas id="canvas2" width="300" height="10"></canvas></td>
       </tr>
      </table>
+      </div>
+      <div class="column">
+        <textarea id="degugarea" rows="20" cols="50"></textarea>
+      </div>
   </body>
 </html>
