@@ -19,6 +19,12 @@
     function log(message) {
       document.getElementById('log').value += message + '\n';
     }
+      
+    function rem(time) {
+      var now = Date.now();
+      return (time-now) / 1000;
+    }
+      
     var r1;
     var r2;
     var t1;
@@ -42,7 +48,7 @@
       t1 = now + r1 * 1000;
       t2 = now + (r1 + r2) * 1000;      spoke1 = false;
       spoke2 = false;
-      log('init now=' + now + ' t1=' + t1 + ' t2=' + t2);
+      log('init now=' + now + ' t1=' + rem(t1) + ' t2=' + rem(t2));
     }
       
     function updateState() {
