@@ -47,10 +47,7 @@
       
     function updateState() {
       var now = Date.now();
-      log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2);
-      log('now=' + now);
-      log(' t1=' + t1);
-      log(' t2=' + t2);
+      log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2 + ' t1=' + rem(t1) + ' t2=' + rem(t2));
       
       if (repeat < 1) clearInterval(interval);
       if (!spoke1) {
