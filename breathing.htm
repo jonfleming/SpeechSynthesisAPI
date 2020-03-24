@@ -6,7 +6,7 @@
       input {font-size: 20px;}
       button {font-size: 20px;}
       th {font-size: 20px; font-weight: bold;}
-      .column {float: left; width: 50%;}
+      .column {float: left; width: 40%;}
 
       /* Clear floats after the columns */
       .row:after {content: ""; display: table; clear: both;}
@@ -16,6 +16,10 @@
   <body>
     <script src="./speechSynthesis.js"></script>
     <script>
+    function log(message) {
+      document.getElementById('log').value += message + '\n';
+    }
+      
     function loop() {
       var count = document.getElementById('repeat').value;
       
@@ -39,6 +43,8 @@
       ctx.fill();
     }
     
+      log('repeat=' + document.getElementById('repeat').value);
+      log('inhale=' + document.getElementById('range1').innerHTML);
     </script>
     <div class="row">
       <div class="column">
@@ -64,7 +70,8 @@
      </table>
       </div>
       <div class="column">
-        <textarea id="degugarea" rows="20" cols="50"></textarea>
+        <br/><br/><br/><br/><br/><br/>
+        <textarea id="log" rows="60" cols="90"></textarea>
       </div>
   </body>
 </html>
