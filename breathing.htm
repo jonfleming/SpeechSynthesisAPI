@@ -33,12 +33,12 @@
       r1 = document.getElementById('range1').value;
       r2 = document.getElementById('range1').value;
       log('loop now=' + now + ' r1=' + r1 + ' r2=' + r2);
-      init();
+      init(now);
       var interval = setInterval(updateState, 1000); 
     }
     
-    function init() {
-      var now = new Date();
+    function init(now) {
+      //var now = new Date();
       t1 = now;
       t2 = now;
       t1.setSeconds( t1.getSeconds() + r1 );
@@ -67,7 +67,7 @@
       
       if (now > t2) {
         repeat--;
-        init();  
+        init(now);  
       }     
     }
     
