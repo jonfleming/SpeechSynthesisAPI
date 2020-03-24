@@ -19,12 +19,46 @@
     function log(message) {
       document.getElementById('log').value += message + '\n';
     }
+    
+    var t1;
+    var t2;
+    var spoke1;
+    var spoke2;
       
     function loop() {
       var repeat = document.getElementById('repeat').value;
-      var r1  = document.getElementById('range1').value;
-      var r2  = document.getElementById('range1').value;
-      var interval = 
+      var r1 = document.getElementById('range1').value;
+      var r2 = document.getElementById('range1').value;
+      init();
+      var interval = setInterval(updateState, 1000); 
+    }
+    
+    function init() {
+      t1 = new Date();
+      t2 = new Date();
+      t1.setSeconds( t1.getSeconds() + r1 );
+      t2.setSeconds( t2.getSeconds() + r1 + r2 );
+      spoke1 = false;
+      spoke2 = false;
+    }
+      
+    function updateState() {
+      var now = new Date();
+      if (repeat < 1) clearInterval(interval);
+      if (!spoke1) {
+        say('inhale');
+        spoke1 = true;
+      }
+      
+      if (!spoke2 && now > t1) {
+        say('exhale');
+        spoke2 = true;
+      }
+      
+      if (now > t2) {
+        repeat--;
+        init();  
+      }
     }
     
     function updateLabel(id, val) {
