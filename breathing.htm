@@ -66,8 +66,8 @@
         spoke2 = true;
       }
  
-      if (t1 > now) fillCell('canvas1', rem(t1)/r1);
-      if (t2 > now && now > t1) fillCell('canvas2', rem(t2)/r2);
+      if (t1 > now) fillCell('canvas1', rem(t1)/r1); else fillCell('canvas1', 0);
+      if (t2 > now && now > t1) fillCell('canvas2', rem(t2)/r2); else fillCell('canvas2', 0);
       if (now > t2) {
         repeat--;
         init(now);  
