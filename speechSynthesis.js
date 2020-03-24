@@ -7,7 +7,7 @@ function log(message) {
 
 function rem(time) {
   var now = Date.now();
-  retturn (time-now) / 1000;
+  return (time-now) / 1000;
 }
 
 // list of languages is probably not loaded, wait for it
