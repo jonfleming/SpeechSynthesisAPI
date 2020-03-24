@@ -40,7 +40,7 @@
       r2 = document.getElementById('range1').value;
       log('loop now=' + now + ' r1=' + r1 + ' r2=' + r2);
       init(now);
-      var interval = setInterval(updateState, 1000); 
+      var interval = setInterval(updateState, 500); 
     }
     
     function init(now) {
@@ -65,7 +65,9 @@
         say('exhale');
         spoke2 = true;
       }
-      
+ 
+      if (t1 > now) fillCell('canvas1', rem(t1)/r1);
+      if (t2 > now && now > t1) fillCell('canvas2', rem(t2)/r2);
       if (now > t2) {
         repeat--;
         init(now);  
