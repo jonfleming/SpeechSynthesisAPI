@@ -37,13 +37,14 @@
     }
     
     function init() {
-      log('init t1=' + t1 + ' t2=' + t2);
-      t1 = new Date();
-      t2 = new Date();
+      var now = new Date();
+      t1 = now;
+      t2 = now;
       t1.setSeconds( t1.getSeconds() + r1 );
       t2.setSeconds( t2.getSeconds() + r1 + r2 );
       spoke1 = false;
       spoke2 = false;
+      log('init now=' + now + ' t1=' + t1 + ' t2=' + t2);
     }
       
     function updateState() {
