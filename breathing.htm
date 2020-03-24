@@ -10,6 +10,7 @@
 
       /* Clear floats after the columns */
       .row:after {content: ""; display: table; clear: both;}
+      #remain { position:absolute; top:10px; right:200px; font-size:45px;}
     </style>
     <title>Breathing</title>
   </head>
@@ -66,6 +67,7 @@
         spoke2 = true;
       }
  
+      updateLabel('remain', repeat);
       if (t1 > now) fillCell('canvas1', rem(t1)/r1); else fillCell('canvas1', 0);
       if (t2 > now && now > t1) fillCell('canvas2', rem(t2)/r2); else fillCell('canvas2', 0);
       if (now > t2) {
@@ -97,7 +99,7 @@
       <div class="column">
     <h1>Breathing</h1><br/>
     Repeat <input size="2" type="text" id="repeat" value="10"> <button onclick="loop()">Go</button><br/>
-    <br/><br/>
+        <br/><br/><label id="remain"></label>
     <table>
       <tr>
         <th>Phrase</th><th>Duration</th><th>*</th><th>Countdown</th>
