@@ -39,11 +39,8 @@
     
     function init(now) {
       //var now = new Date();
-      t1 = now;
-      t2 = now;
-      t1.setSeconds( t1.getSeconds() + r1 );
-      t2.setSeconds( t2.getSeconds() + r1 + r2 );
-      spoke1 = false;
+      t1 = now + r1 * 1000;
+      t2 = now + (r1 + r2) * 1000;      spoke1 = false;
       spoke2 = false;
       log('init now=' + now + ' t1=' + t1 + ' t2=' + t2);
     }
