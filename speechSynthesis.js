@@ -1,6 +1,10 @@
 var synth = window.speechSynthesis;
 var available_voices;
 
+function log(message) {
+  document.getElementById('log').value += message + '\n';
+}
+    
 // list of languages is probably not loaded, wait for it
 if (window.speechSynthesis.getVoices().length == 0) {
     window.speechSynthesis.addEventListener('voiceschanged', function() {
@@ -47,5 +51,6 @@ function textToSpeech(text) {
 
 function say(id) {
     var text = document.getElementById(id).value;
+    log('say:' + text);
     textToSpeech(text);
 }
