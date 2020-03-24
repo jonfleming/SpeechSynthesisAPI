@@ -16,7 +16,9 @@
   <body>
     <script src="./speechSynthesis.js"></script>
     <script>
-    
+    function log(message) {
+      document.getElementById('log').value += message + '\n';
+    }
     var r1;
     var r2;
     var t1;
