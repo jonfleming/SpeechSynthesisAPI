@@ -50,7 +50,8 @@
     function updateState() {
       var now = new Date();
       log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2);
-      log('now=' + now + ' t1=' + t1);
+      log('now=' + now);
+      log(' t1=' + t1);
       
       if (repeat < 1) clearInterval(interval);
       if (!spoke1) {
@@ -109,7 +110,7 @@
       </div>
       <div class="column">
         <br/><br/><br/><br/><br/><br/>
-        <textarea id="log" rows="50" cols="50"></textarea>
+        <textarea id="log" rows="50" cols="110"></textarea>
       </div>
   </body>
 </html>
