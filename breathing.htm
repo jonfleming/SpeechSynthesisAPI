@@ -79,8 +79,13 @@
     function fillCell(id, percent) {
       var canvas = document.getElementById(id);      
       var ctx = canvas.getContext('2d');
-      ctx.rect(0, 0, 300 * percent, canvas.height);
+      var x = 300 * percent;
+      ctx.rect(0, 0, x, canvas.height);
       ctx.fillStyle = 'blue';
+      ctx.fill();
+      
+      ctx.rect(x, 0, 300 - x *, canvas.height);
+      ctx.fillStyle = 'white';
       ctx.fill();
     }
     
@@ -111,7 +116,7 @@
      </table>
       </div>
       <div class="column">
-        <br/><br/><br/><button onclick="say('inhale')">Say</button><button onclick="fillCell('canvas1', 80)">Fill</button>
+        <br/><br/><br/><button onclick="say('inhale')">Say</button><button onclick="fillCell('canvas1', .80)">Fill</button>
         <textarea id="log" rows="50" cols="110"></textarea>
       </div>
   </body>
