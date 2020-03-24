@@ -26,6 +26,7 @@
     var spoke2;
       
     function loop() {
+      log('loop');
       var repeat = document.getElementById('repeat').value;
       var r1 = document.getElementById('range1').value;
       var r2 = document.getElementById('range1').value;
@@ -43,7 +44,9 @@
     }
       
     function updateState() {
+      log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2);
       var now = new Date();
+      log('now=' + now + ' t1=' + t1);
       if (repeat < 1) clearInterval(interval);
       if (!spoke1) {
         say('inhale');
