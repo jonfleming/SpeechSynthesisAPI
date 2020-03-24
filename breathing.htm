@@ -46,7 +46,7 @@
     function init(now) {
       //var now = new Date();
       t1 = now + r1 * 1000;
-      t2 = now + (r1 + r2) * 1000;      spoke1 = false;
+      t2 = now + (+r1 + +r2) * 1000;      spoke1 = false;
       spoke2 = false;
       log('init now=' + now + ' t1=' + rem(t1) + ' t2=' + rem(t2));
     }
