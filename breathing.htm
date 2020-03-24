@@ -28,7 +28,7 @@
     var repeaat;
       
     function loop() {
-      var now = new Date();
+      var now = Date.now();
       repeat = document.getElementById('repeat').value;
       r1 = document.getElementById('range1').value;
       r2 = document.getElementById('range1').value;
@@ -49,7 +49,7 @@
     }
       
     function updateState() {
-      var now = new Date();
+      var now = Date.now();
       log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2);
       log('now=' + now);
       log(' t1=' + t1);
