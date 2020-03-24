@@ -28,10 +28,11 @@
     var repeaat;
       
     function loop() {
+      var now = new Date();
       repeat = document.getElementById('repeat').value;
       r1 = document.getElementById('range1').value;
       r2 = document.getElementById('range1').value;
-      log('loop r1=' + r1 + ' r2=' + r2);
+      log('loop now=' + now + ' r1=' + r1 + ' r2=' + r2);
       init();
       var interval = setInterval(updateState, 1000); 
     }
