@@ -1,5 +1,3 @@
-var available_voices = [];
-
 function log(message) {
   console.log(message);
   //document.getElementById('log').value += message + '\n';
@@ -11,32 +9,34 @@ function rem(time) {
 }
 
 // list of languages is probably not loaded, wait for it
-var checkVoices = setInterval(function() {
-  log('check');
-  if (window.speechSynthesis.getVoices().length > 0) {
+if (window.speechSynthesis.getVoices().length == 0) {
+    window.speechSynthesis.addEventListener('voiceschanged', function() {
+        available_voices = window.speechSynthesis.getVoices();
+    });
+} else {
     available_voices = window.speechSynthesis.getVoices();
-    log('checkVoices:' + JSON.stringify(available_voices, null, 4));
-    clearInterval(checkVoices);
-    log('here');
-  }
-},100);
+}
 
 function textToSpeech(text) {
+    // get all voices that browser offers
+    var available_voices = window.speechSynthesis.getVoices();
     log('textToSpeech:' + text + 'voices:' + JSON.stringify(available_voices, null, 4));
-    available_voices = window.speechSynthesis.getVoices();
-    log('textToSpeech:' + text + 'voices:' + JSON.stringify(available_voices, null, 4));
-  
-    var english_voice = available_voices.filter(function (voice) {
-      //return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
-      return voice.lang === 'en-US');
-    });
-  
-    if (english_voice.length === 0)
+    // this will hold an english voice
+    var english_voice = '';
+
+    // find voice by language locale "en-US"
+    // if not then select the first voice
+    for (var i = 0; i < available_voices.length; i++) {
+        //    alert(available_voices[i].lang + ' ' + available_voices[i].name);
+        if (available_voices[i].lang === 'en-US') {
+            english_voice = available_voices[i];
+            break;
+        }
+    }
+    if (english_voice === '')
         english_voice = available_voices[0];
-    else
-      english_voice = english_voice[0];
-  
-    log('voice:' + JSON.stringify(english_voice, null,4));
+
+    // new SpeechSynthesisUtterance object
     var utter = new SpeechSynthesisUtterance();
     utter.rate = 1;
     utter.pitch = 0.5;
