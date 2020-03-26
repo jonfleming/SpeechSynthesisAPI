@@ -27,7 +27,8 @@ function textToSpeech(text) {
     log('textToSpeech:' + text + 'voices:' + JSON.stringify(available_voices, null, 4));
   
     var english_voice = available_voices.filter(function (voice) {
-      return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
+      //return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
+      return voice.lang === 'en-US');
     });
   
     if (english_voice.length === 0)
