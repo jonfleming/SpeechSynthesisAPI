@@ -10,8 +10,6 @@ function rem(time) {
   return (time-now) / 1000;
 }
 
-var available_voices;
-
 // list of languages is probably not loaded, wait for it
 if (window.speechSynthesis.getVoices().length == 0) {
     window.speechSynthesis.addEventListener('voiceschanged', function() {
@@ -22,9 +20,9 @@ if (window.speechSynthesis.getVoices().length == 0) {
 }
 
 function textToSpeech(text) {
-    log('textToSpeech:' + text);
+    log('textToSpeech:' + text + 'voices:' + JSON.stringify(available_voices, null, 4));
     available_voices = window.speechSynthesis.getVoices();
-    log('voices[0]:' + JSON.stringify(available_voices[0], null,4));
+    log('textToSpeech:' + text + 'voices:' + JSON.stringify(available_voices, null, 4));
   
     var english_voice = available_voices.filter(function (voice) {
       return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
