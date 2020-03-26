@@ -29,7 +29,7 @@ function textToSpeech(text) {
     // find voice by language locale "en-US"
     // if not then select the first voice
     english_voice = available_voices.filter(function (voice) {
-      return voice.lang === 'en-US';
+      return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
     })[0];
   
     if (!english_voice)
