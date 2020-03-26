@@ -21,6 +21,7 @@ if (window.speechSynthesis.getVoices().length == 0) {
 
 function textToSpeech(text) {
     // get all voices that browser offers
+  devugger;
     var available_voices = window.speechSynthesis.getVoices();
 
     // this will hold an english voice
