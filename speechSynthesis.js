@@ -29,18 +29,18 @@ function textToSpeech(text) {
     // find voice by language locale "en-US"
     // if not then select the first voice
     english_voice = available_voices.filter(function (voice) {
-      return voice.lang === 'en-US' && voice.name === 'Samantha';
-    });
+      return voice.lang === 'en-US';
+    })[0];
   
-    if (english_voice.length === 0)
-        english_voice[0] = available_voices[1];
+    if (!english_voice)
+        english_voice = available_voices[0];
 
     // new SpeechSynthesisUtterance object
     var utter = new SpeechSynthesisUtterance();
     utter.rate = 1;
     utter.pitch = 0.5;
     utter.text = text;
-    utter.voice = english_voice[0];
+    utter.voice = english_voice;
 
     // event after text has been spoken
     utter.onend = function() {
