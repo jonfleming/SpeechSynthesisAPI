@@ -30,10 +30,10 @@ function textToSpeech(text) {
       return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
     });
   
-    if (english_voice.length ==0)
+    if (english_voice.length === 0)
         english_voice = available_voices[0];
     else
-      english_voice = english_voice;
+      english_voice = english_voice[0];
   
     log('voice:' + JSON.stringify(english_voice, null,4));
     var utter = new SpeechSynthesisUtterance();
