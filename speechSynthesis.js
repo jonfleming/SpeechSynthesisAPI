@@ -20,22 +20,14 @@ if (window.speechSynthesis.getVoices().length == 0) {
 }
 
 function textToSpeech(text) {
-    // get all voices that browser offers
     var available_voices = window.speechSynthesis.getVoices();
-
-    // this will hold an english voice
-    var english_voice = '';
-
-    // find voice by language locale "en-US"
-    // if not then select the first voice
-    english_voice = available_voices.filter(function (voice) {
+    var english_voice = available_voices.filter(function (voice) {
       return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
     })[0];
   
     if (!english_voice)
         english_voice = available_voices[0];
-
-    // new SpeechSynthesisUtterance object
+    log('voice:' + JSON.stringify(english_voice, null,4));
     var utter = new SpeechSynthesisUtterance();
     utter.rate = 1;
     utter.pitch = 0.5;
