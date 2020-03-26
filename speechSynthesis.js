@@ -1,4 +1,4 @@
-var available_voices;
+var available_voices = [];
 
 function log(message) {
   console.log(message);
@@ -15,7 +15,7 @@ var checkVoices = setInterval(function() {
   log('check');
   if (window.speechSynthesis.getVoices().length > 0) {
     available_voices = window.speechSynthesis.getVoices();
-    log('checVoices:' + JSON.stringify(available_voices, null, 4));
+    log('checkVoices:' + JSON.stringify(available_voices, null, 4));
     clearInterval(checkVoices);
     log('here');
   }
