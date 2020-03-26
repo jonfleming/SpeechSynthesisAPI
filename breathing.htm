@@ -56,10 +56,11 @@
     function updateState() {
       var now = Date.now();
       log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2 + ' t1=' + rem(t1) + ' t2=' + rem(t2));
+      updateLabel('remain', repeat);
       
       if (repeat < 1) {
         clearInterval(interval);
-        updateLabel('remain','');
+        updateLabel('remain',' ');
       }
       
       if (!spoke1) {
@@ -72,7 +73,6 @@
         spoke2 = true;
       }
  
-      updateLabel('remain', repeat);
       if (t1 > now) fillCell('canvas1', rem(t1)/r1); else fillCell('canvas1', 0);
       if (t2 > now && now > t1) fillCell('canvas2', rem(t2)/r2); else fillCell('canvas2', 0);
       if (now > t2) {
