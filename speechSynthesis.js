@@ -11,12 +11,14 @@ function rem(time) {
 }
 
 // list of languages is probably not loaded, wait for it
-if (window.speechSynthesis.getVoices().length == 0) {
-    window.speechSynthesis.addEventListener('voiceschanged', function() {
-        available_voices = window.speechSynthesis.getVoices();
-      log('here');
-    });
-}
+var checkVoices = setInterval(function() {
+  if (window.speechSynthesis.getVoices().length > 0) {
+    available_voices = window.speechSynthesis.getVoices();
+    log('checVoices:' + JSON.stringify(available_voices, null, 4));
+    clearInterval(checkVoices);
+    log('here');
+  }
+},100);
 
 function textToSpeech(text) {
     log('textToSpeech:' + text + 'voices:' + JSON.stringify(available_voices, null, 4));
