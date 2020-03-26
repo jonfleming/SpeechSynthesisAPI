@@ -12,6 +12,7 @@ function rem(time) {
 
 // list of languages is probably not loaded, wait for it
 var checkVoices = setInterval(function() {
+  log('check');
   if (window.speechSynthesis.getVoices().length > 0) {
     available_voices = window.speechSynthesis.getVoices();
     log('checVoices:' + JSON.stringify(available_voices, null, 4));
