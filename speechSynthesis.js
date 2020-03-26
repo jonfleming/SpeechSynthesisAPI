@@ -3,6 +3,7 @@ var available_voices;
 
 function log(message) {
   document.getElementById('log').value += message + '\n';
+  console.log(message);
 }
 
 function rem(time) {
