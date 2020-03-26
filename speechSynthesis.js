@@ -2,8 +2,8 @@ var synth = window.speechSynthesis;
 var available_voices;
 
 function log(message) {
-  document.getElementById('log').value += message + '\n';
   console.log(message);
+  document.getElementById('log').value += message + '\n';
 }
 
 function rem(time) {
