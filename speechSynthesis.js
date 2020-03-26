@@ -1,4 +1,3 @@
-var synth = window.speechSynthesis;
 var available_voices;
 
 function log(message) {
@@ -23,6 +22,7 @@ if (window.speechSynthesis.getVoices().length == 0) {
 }
 
 function textToSpeech(text) {
+    log('textToSpeech:' + text);
     available_voices = window.speechSynthesis.getVoices();
     log('voices[0]:' + JSON.stringify(available_voices[0], null,4));
   
