@@ -14,9 +14,8 @@ function rem(time) {
 if (window.speechSynthesis.getVoices().length == 0) {
     window.speechSynthesis.addEventListener('voiceschanged', function() {
         available_voices = window.speechSynthesis.getVoices();
+      log('here');
     });
-} else {
-    available_voices = window.speechSynthesis.getVoices();
 }
 
 function textToSpeech(text) {
