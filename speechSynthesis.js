@@ -29,7 +29,6 @@ function textToSpeech(text) {
     // find voice by language locale "en-US"
     // if not then select the first voice
     for (var i = 0; i < available_voices.length; i++) {
-        //    alert(available_voices[i].lang + ' ' + available_voices[i].name);
         if (available_voices[i].lang === 'en-US' && available_voices[i].name === 'Samantha') {
             english_voice = available_voices[i];
             break;
