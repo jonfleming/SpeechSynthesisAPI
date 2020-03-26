@@ -10,6 +10,8 @@ function rem(time) {
   return (time-now) / 1000;
 }
 
+var available_voices;
+
 // list of languages is probably not loaded, wait for it
 if (window.speechSynthesis.getVoices().length == 0) {
     window.speechSynthesis.addEventListener('voiceschanged', function() {
@@ -20,13 +22,18 @@ if (window.speechSynthesis.getVoices().length == 0) {
 }
 
 function textToSpeech(text) {
-    var available_voices = window.speechSynthesis.getVoices();
+    available_voices = window.speechSynthesis.getVoices();
+    log('voices[0]:' + JSON.stringify(available_voices[0], null,4));
+  
     var english_voice = available_voices.filter(function (voice) {
       return voice.lang === 'en-US' && (voice.name.indexOf('Zira') > -1 || voice.name.indexOf('Samantha') > -1);
-    })[0];
+    });
   
-    if (!english_voice)
+    if (english_voice.length ==0)
         english_voice = available_voices[0];
+    else
+      english_voice = english_voice;
+  
     log('voice:' + JSON.stringify(english_voice, null,4));
     var utter = new SpeechSynthesisUtterance();
     utter.rate = 1;
