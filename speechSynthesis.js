@@ -1,6 +1,6 @@
 function log(message) {
-  console.log(message);
-  //document.getElementById('log').value += message + '\n';
+  //console.log(message);
+  document.getElementById('log').value += message + '\n';
 }
 
 function rem(time) {
