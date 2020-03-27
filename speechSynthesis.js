@@ -3,6 +3,8 @@ function log(message) {
   document.getElementById('log').value += message + '\n';
 }
 
+var replacer = function(k, v) { if (v === undefined) { return null; } return v; };
+
 function rem(time) {
   var now = Date.now();
   return (time-now) / 1000;
@@ -22,7 +24,7 @@ if (window.speechSynthesis.getVoices().length == 0) {
 function textToSpeech(text) {
     // get all voices that browser offers
     var available_voices = window.speechSynthesis.getVoices();
-    log('available_voices:' + JSON.stringify(available_voices, null,4));
+    log('available_voices:' + JSON.stringify(available_voices, replacer, 4));
     // this will hold an english voice
     var english_voice = '';
 
@@ -35,11 +37,11 @@ function textToSpeech(text) {
             break;
         }
     }
-    log('english_voice' + JSON.stringify(english_voice, null, 4));
+    log('english_voice' + JSON.stringify(english_voice, replacer, 4));
   
     if (english_voice === '') {
         english_voice = available_voices[0];
-        log('english_voice' + JSON.stringify(english_voice, null, 4));
+        log('english_voice' + JSON.stringify(english_voice, replacer, 4));
     }
   
     // new SpeechSynthesisUtterance object
