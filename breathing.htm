@@ -33,7 +33,8 @@
     var t2;
     var spoke1;
     var spoke2;
-    var repeaat;
+    var repeat;
+    var interval;
       
     function loop() {
       var now = Date.now();
@@ -42,7 +43,7 @@
       r2 = document.getElementById('range1').value;
       log('loop now=' + now + ' r1=' + r1 + ' r2=' + r2);
       init(now);
-      var interval = setInterval(updateState, 500); 
+      interval = setInterval(updateState, 500); 
     }
     
     function init(now) {
