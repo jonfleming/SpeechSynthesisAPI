@@ -27,7 +27,7 @@ if (window.speechSynthesis.getVoices().length == 0) {
 function textToSpeech(text) {
     // get all voices that browser offers
     var available_voices = window.speechSynthesis.getVoices();
-    log('available_voices:' + JSON.stringify(vlog(available_voices), replacer, 4));
+
     // this will hold an english voice
     var english_voice = '';
 
