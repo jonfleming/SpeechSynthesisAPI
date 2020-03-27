@@ -11,15 +11,18 @@ function rem(time) {
 // list of languages is probably not loaded, wait for it
 if (window.speechSynthesis.getVoices().length == 0) {
     window.speechSynthesis.addEventListener('voiceschanged', function() {
+        log('voiceschanged');
         available_voices = window.speechSynthesis.getVoices();
     });
 } else {
+    log('no voiceschanged');
     available_voices = window.speechSynthesis.getVoices();
 }
 
 function textToSpeech(text) {
     // get all voices that browser offers
     var available_voices = window.speechSynthesis.getVoices();
+    log('available_voices:' + JSON.stringify(available_voices, null,4));
     // this will hold an english voice
     var english_voice = '';
 
@@ -32,9 +35,13 @@ function textToSpeech(text) {
             break;
         }
     }
-    if (english_voice === '')
+    log('english_voice' + JSON.stringify(english_voice, null, 4));
+  
+    if (english_voice === '') {
         english_voice = available_voices[0];
-
+        log('english_voice' + JSON.stringify(english_voice, null, 4));
+    }
+  
     // new SpeechSynthesisUtterance object
     var utter = new SpeechSynthesisUtterance();
     utter.rate = 1;
