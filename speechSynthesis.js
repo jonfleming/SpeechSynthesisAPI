@@ -5,7 +5,7 @@ function log(message) {
 
 function replace(k, v) { if (v === undefined) { return null; } return v; };
 function vlog(voice) {
-  return {voiceURI: voice.voiceURI, name: voice.name, lang: coice.lang, default:voice.default};  
+  return {voiceURI: voice.voiceURI, name: voice.name, lang: voice.lang, default:voice.default};  
 }
 
 function rem(time) {
