@@ -5,7 +5,7 @@ function log(message) {
 
 function replace(k, v) { if (v === undefined) { return null; } return v; };
 function vlog(voice) {
-  return {voiceURI: voice.voiceURI, name: voice.name, lang: coice.lang, default:voice.default};  
+  return {voiceURI: voice.voiceURI, name: voice.name, lang: voice.lang, default:voice.default};  
 }
 
 function rem(time) {
@@ -27,8 +27,6 @@ if (window.speechSynthesis.getVoices().length == 0) {
 function textToSpeech(text) {
     // get all voices that browser offers
     var available_voices = window.speechSynthesis.getVoices();
-
-    // this will hold an english voice
     var english_voice = '';
 
     // find voice by language locale "en-US"
