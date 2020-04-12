@@ -3,7 +3,7 @@ function log(message) {
   document.getElementById('log').value += message + '\n';
 }
 
-function replace(k, v) { if (v === undefined) { return null; } return v; };
+function replacer(k, v) { if (v === undefined) { return null; } return v; };
 function vlog(voice) {
   return {voiceURI: voice.voiceURI, name: voice.name, lang: voice.lang, default:voice.default};  
 }

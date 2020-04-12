@@ -2,12 +2,13 @@
 <html>
   <head>
     <style>
-     /* #dev {display:none;}*/
-      body {font-size: 20px;}
-      input {font-size: 20px;}
-      button {font-size: 20px;}
-      th {font-size: 20px; font-weight: bold;}
-      .column {float: left; width: 60%;}
+     #dev {display:none;}
+      h1 { font-family: Arial;}
+      body {font-size: 20px; font-family: Arial;}
+      input {font-size: 20px; font-family: Arial;}
+      button {font-size: 20px; font-family: Arial;}
+      th {font-size: 20px; font-weight: bold; font-family: Arial;}
+      .column {float: left; width: 60%; font-family: Arial;}
 
       /* Clear floats after the columns */
       .row:after {content: ""; display: table; clear: both;}
@@ -41,7 +42,7 @@
       repeat = document.getElementById('repeat').value;
       r1 = document.getElementById('range1').value;
       r2 = document.getElementById('range1').value;
-      log('loop now=' + now + ' r1=' + r1 + ' r2=' + r2);
+      //log('loop now=' + now + ' r1=' + r1 + ' r2=' + r2);
       init(now);
       interval = setInterval(updateState, 500); 
     }
@@ -51,17 +52,18 @@
       t1 = now + r1 * 1000;
       t2 = now + (+r1 + +r2) * 1000;      spoke1 = false;
       spoke2 = false;
-      log('init now=' + now + ' t1=' + rem(t1) + ' t2=' + rem(t2));
+      //log('init now=' + now + ' t1=' + rem(t1) + ' t2=' + rem(t2));
     }
       
     function updateState() {
       var now = Date.now();
-      log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2 + ' t1=' + rem(t1) + ' t2=' + rem(t2));
+      //log('updateState repeat=' + repeat + ' spoke1=' + spoke1 + ' spoke2=' + spoke2 + ' t1=' + rem(t1) + ' t2=' + rem(t2));
       updateLabel('remain', repeat);
       
       if (repeat < 1) {
         clearInterval(interval);
         updateLabel('remain',' ');
+        return;
       }
       
       if (!spoke1) {
@@ -95,7 +97,7 @@
       ctx.fillRect(0, 0, x, canvas.height);
       ctx.fillStyle = 'white';
       ctx.fillRect(x, 0, 300 - x, canvas.height);
-      log('fillCell x=' + x + ' percent=' + percent);
+     // log('fillCell x=' + x + ' percent=' + percent);
     }
     
       log('repeat=' + document.getElementById('repeat').value);
@@ -108,7 +110,7 @@
         <br/><br/><label id="remain"></label>
     <table>
       <tr>
-        <th>Phrase</th><th>Duration</th><th>*</th><th>Countdown</th>
+        <th>Phrase</th><th>Duration</th><th></th><th>Countdown</th>
       </tr>
       <tr>
         <td><input id="inhale" type="text" value="Inhale"></td>
