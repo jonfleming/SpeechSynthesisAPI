@@ -6,18 +6,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <style>
-     /*#dev {display:none;}*/
-      h1 { font-family: Arial;}
-      body {font-size: 20px; font-family: Arial;}
-      input {font-size: 20px; font-family: Arial; }
-      button {font-size: 20px; font-family: Arial;}
-      th {font-size: 20px; font-weight: bold; font-family: Arial;}
-      column {float: left; width: 60%; font-family: Arial;}
-      .tick {font-size: 20px; font-family: Arial; width:2%}
+     /*#dev {display:none;} */
 
       /* Clear floats after the columns */
       .row:after {content: ""; display: table; clear: both;}
-      #remain { position:absolute; top:100px; left:400px; font-size:45px;}
+      #remain { position:absolute; top:-50px; left:100px; font-size:45px;}
     </style>
     <title>Breathing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -107,60 +100,92 @@
     }
 
     </script>
-    <div class="container">
+    <div class="container" style="border: solid 1px black; border-radius: 10px; max-width: 600px; padding: 20px">
       <div class="row">
-        <div class="column">
-          <h1>Breathing</h1><br/>
-          Repeat <input size="2" type="text" id="repeat" value="10"> 
-          <button onclick="loop()">Go</button><br/>
-          <br/><br/>
+        <div class="col-12">
+          <h1>Breathing</h1>
+        </div>
+      </dic>
+      <div class="row form-group  "> 
+        <div class="col-3">
+          Repeat 
+        </div>
+        <div class="col-3">
+          <input size="4" type="text" id="repeat" value="10"> 
+        </div>
+        <div class="col-4">
+          <button onclick="loop()">Go</button>
+        </div>
+        <div class="col-2">
+          <!--<i>Click Go to start</i>-->
+        </div>
+      </div> 
+
+      <div class="row form-group">
+        <div class="col-12">
           <label id="remain"></label>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          Phrase
+      </div>      
+      <div class="row" style="background-color: #f0f0f0; border-top-left-radius: 10px; border-top-right-radius: 10px; padding-left: 40px;">
+        <div class="w-100"></div>
+        <div class="col-4"  style="padding-left: -60px;">
+          Phrase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
-        <div class="col-sm-4">
+        <div class="col-4" style="padding-left: 30px; width:100%;">
           Duration
         </div>
-        <div class="col-sm-4">
-          Countdown
+        <div class="col-4" style="padding-left: 60px;">
+          Countdown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
       </div>
 
       <div class="row form-group">
-        <div class="col-sm-4">
+        <div class="col-4">
           <input class="form-control input-lg" id="inhale" type="text" value="Inhale">
         </div>
-        <div class="col-sm-4">
-          <div class="row">
-            <div class="col-sm-9"><input type="range" min="1" max="10" value="3" id="range1" onchange="updateLabel('label1',this.value);"></div>
-            <div class="col-sm-3"></div><label id="label1">3</label></div>
-          </div>
+        <div class="col-4" style="padding-left: 0px;">
+          <input type="range" min="1" max="10" value="3" id="range1" onchange="updateLabel('label1',this.value);">
+          <label id="label1" style="position: relative; top:-5px" >3</label>
         </div>
-        <div class="col-sm-4">  
+        <div class="col-4">  
           <canvas id="canvas1" width="300" height="10"></canvas>
         </div>
       </div>
 
       <div class="row form-group">
-        <div class="col-sm-4">
+        <div class="col-4">
           <input class="form-control input-lg" id="exhale" type="text" value="Exhale">
         </div>
-        <div class="col-sm-4">
+        <div class="col-4" style="padding-left: 0px;">
           <input type="range" min="1" max="10" value="3" id="range2" onchange="updateLabel('label2',this.value);">
-          <label id="label2">3</label>
+          <label id="label2" style="position: relative; top:-5px" >3</label>
         </div>
-        <div class="col-sm-4">
+        <div class="col-5">
           <canvas id="canvas2" width="300" height="10"></canvas>
         </div>
       </div>
-      <div class="row form-group" id="dev">
-        <div class="col-sm"></div>
-        <br/><br/><br/><button onclick="say('inhale')">Say</button><button onclick="fillCell('canvas1', .80)">Fill</button>
-        <textarea id="log" rows="50" cols="110"></textarea>
-      </div>
+      <div class="row" id="dev">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-2">
+              <button onclick="say('inhale')">Say</button>
+            </div>
+            <div class="col-2">
+              <button onclick="fillCell('canvas1', .80)">Fill</button>
+            </div> 
+            <div class="col-10">
+            </div> 
+          </div>
+          <div class="row form-group">   
+            <div class="col-12">
+              <textarea id="log" rows="40" cols="60"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div></div>
+        </div>
+        </div>
       </div>
     </div>
     <script>
