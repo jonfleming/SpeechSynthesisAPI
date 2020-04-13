@@ -90,12 +90,12 @@
     function fillCell(id, percent) {
       var canvas = document.getElementById(id);      
       var ctx = canvas.getContext('2d');
-      var x = 300 * percent;
+      var x = 150 * percent;
       
       ctx.fillStyle = 'blue';
       ctx.fillRect(0, 0, x, canvas.height);
       ctx.fillStyle = 'white';
-      ctx.fillRect(x, 0, 300 - x, canvas.height);
+      ctx.fillRect(x, 0, 150 - x, canvas.height);
      // log('fillCell x=' + x + ' percent=' + percent);
     }
 
@@ -111,7 +111,7 @@
           Repeat 
         </div>
         <div class="col-3">
-          <input size="4" type="text" id="repeat" value="10"> 
+          <input size="2" type="text" id="repeat" value="10"> 
         </div>
         <div class="col-4">
           <button onclick="loop()">Go</button>
@@ -128,40 +128,40 @@
       </div>      
       <div class="row" style="background-color: #f0f0f0; border-top-left-radius: 10px; border-top-right-radius: 10px; padding-left: 40px;">
         <div class="w-100"></div>
-        <div class="col-4"  style="padding-left: -60px;">
+        <div class="col-3"  style="margin:0px; padding-left: 0px; padding-right: 60px;">
           Phrase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <div class="col-4" style="padding-left: 30px; width:100%;">
           Duration
         </div>
-        <div class="col-4" style="padding-left: 60px;">
+        <div class="col-5" style="padding-left: 60px;">
           Countdown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
       </div>
 
       <div class="row form-group">
-        <div class="col-4">
+        <div class="col-3">
           <input class="form-control input-lg" id="inhale" type="text" value="Inhale">
         </div>
-        <div class="col-4" style="padding-left: 0px;">
+        <div class="col-4" style="padding-left: 0px; margin-top:5px">
           <input type="range" min="1" max="10" value="3" id="range1" onchange="updateLabel('label1',this.value);">
           <label id="label1" style="position: relative; top:-5px" >3</label>
         </div>
-        <div class="col-4">  
-          <canvas id="canvas1" width="300" height="10"></canvas>
+        <div class="col-5" style="padding-left: 0px;">  
+          <canvas id="canvas1" width="150" height="10"></canvas>
         </div>
       </div>
 
       <div class="row form-group">
-        <div class="col-4">
+        <div class="col-3">
           <input class="form-control input-lg" id="exhale" type="text" value="Exhale">
         </div>
-        <div class="col-4" style="padding-left: 0px;">
+        <div class="col-4" style="padding-left: 0px; margin-top:5px">
           <input type="range" min="1" max="10" value="3" id="range2" onchange="updateLabel('label2',this.value);">
           <label id="label2" style="position: relative; top:-5px" >3</label>
         </div>
-        <div class="col-5">
-          <canvas id="canvas2" width="300" height="10"></canvas>
+        <div class="col-5" style="padding-left: 0px;">
+          <canvas id="canvas2" width="150" height="10"></canvas>
         </div>
       </div>
       <div class="row" id="dev">
