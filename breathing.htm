@@ -6,13 +6,14 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <style>
-     #dev {display:none;}
+     /*#dev {display:none;}*/
       h1 { font-family: Arial;}
       body {font-size: 20px; font-family: Arial;}
-      input {font-size: 20px; font-family: Arial;}
+      input {font-size: 20px; font-family: Arial; }
       button {font-size: 20px; font-family: Arial;}
       th {font-size: 20px; font-weight: bold; font-family: Arial;}
-      .column {float: left; width: 60%; font-family: Arial;}
+      column {float: left; width: 60%; font-family: Arial;}
+      .tick {font-size: 20px; font-family: Arial; width:2%}
 
       /* Clear floats after the columns */
       .row:after {content: ""; display: table; clear: both;}
@@ -104,9 +105,7 @@
       ctx.fillRect(x, 0, 300 - x, canvas.height);
      // log('fillCell x=' + x + ' percent=' + percent);
     }
-    
-      log('repeat=' + document.getElementById('repeat').value);
-      log('inhale=' + document.getElementById('range1').value);
+
     </script>
     <div class="container">
       <div class="row">
@@ -119,55 +118,59 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-3">
           Phrase
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
           Duration
         </div>
-        <div class="col-sm">
+        <div class="tick">
           &nbsp;
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
           Countdown
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm">
-          <input id="inhale" type="text" value="Inhale">
+      <div class="row form-group">
+        <div class="col-sm-3">
+          <input class="form-control input-lg" id="inhale" type="text" value="Inhale">
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
           <input type="range" min="1" max="10" value="3" id="range1" onchange="updateLabel('label1',this.value);">
         </div>
-        <div class="col-sm">
+        <div class="tick">
           <label id="label1">3</label>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
           <canvas id="canvas1" width="300" height="10"></canvas>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm">
-          <input id="exhale" type="text" value="Exhale">
+      <div class="row form-group">
+        <div class="col-sm-3">
+          <input class="form-control input-lg" id="exhale" type="text" value="Exhale">
         </div>
-        <div class="col-sm">
+        <div class="col-sm-3">
           <input type="range" min="1" max="10" value="3" id="range2" onchange="updateLabel('label2',this.value);">
         </div>
-        <div class="col-sm">
-          &nbsp;
+        <div class="tick">
+          <label id="label2">3</label>
         </div>
-        <div class="col-sm">
-          <canvas id="canvas1" width="300" height="10"></canvas>
+        <div class="col-sm-3">
+          <canvas id="canvas2" width="300" height="10"></canvas>
         </div>
       </div>
-      <div class="row" id="dev">
+      <div class="row form-group" id="dev">
         <div class="col-sm"></div>
         <br/><br/><br/><button onclick="say('inhale')">Say</button><button onclick="fillCell('canvas1', .80)">Fill</button>
         <textarea id="log" rows="50" cols="110"></textarea>
       </div>
       </div>
     </div>
+    <script>
+      log('repeat=' + document.getElementById('repeat').value);
+      log('inhale=' + document.getElementById('range1').value);
+    </script>
   </body>
 </html>
