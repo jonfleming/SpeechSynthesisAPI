@@ -118,46 +118,41 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           Phrase
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           Duration
         </div>
-        <div class="tick">
-          &nbsp;
-        </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           Countdown
         </div>
       </div>
 
       <div class="row form-group">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <input class="form-control input-lg" id="inhale" type="text" value="Inhale">
         </div>
-        <div class="col-sm-3">
-          <input type="range" min="1" max="10" value="3" id="range1" onchange="updateLabel('label1',this.value);">
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-9"><input type="range" min="1" max="10" value="3" id="range1" onchange="updateLabel('label1',this.value);"></div>
+            <div class="col-sm-3"></div><label id="label1">3</label></div>
+          </div>
         </div>
-        <div class="tick">
-          <label id="label1">3</label>
-        </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">  
           <canvas id="canvas1" width="300" height="10"></canvas>
         </div>
       </div>
 
       <div class="row form-group">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <input class="form-control input-lg" id="exhale" type="text" value="Exhale">
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <input type="range" min="1" max="10" value="3" id="range2" onchange="updateLabel('label2',this.value);">
-        </div>
-        <div class="tick">
           <label id="label2">3</label>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <canvas id="canvas2" width="300" height="10"></canvas>
         </div>
       </div>
